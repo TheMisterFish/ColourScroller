@@ -1,7 +1,0 @@
-v1	named	intermediary
-FIELD	net/anware/tmc/colourscroller/mixin/keyfix/MixinKeybBinding	I	timesPressed	field_1661
-FIELD	net/anware/tmc/colourscroller/mixin/keyfix/MixinKeybBinding	Ljava/util/Map;	KEYS_BY_ID	field_1657
-FIELD	net/anware/tmc/colourscroller/mixin/keyfix/MixinKeybBinding	Lnet/minecraft/client/util/InputUtil$Key;	boundKey	field_1655
-FIELD	net/anware/tmc/colourscroller/mixin/MixinPlayerInventory	Lnet/minecraft/entity/player/PlayerEntity;	player	field_7546
-FIELD	net/anware/tmc/colourscroller/mixin/MixinPlayerInventory	I	selectedSlot	field_7545
-METHOD	net/anware/tmc/colourscroller/mixin/tag/MixinItems	(Lnet/minecraft/util/Identifier;Lnet/minecraft/item/Item;)Lnet/minecraft/item/Item;	register	method_7990
