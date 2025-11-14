@@ -1,10 +1,10 @@
 package net.anware.tmc.colourscroller;
 
-public interface ColouredItem {
+public interface ScrollableItem {
 
-    boolean coloured();
+    boolean scrollable();
 
-    void setColoured(boolean coloured);
+    void setScrollable(boolean coloured);
 
     int getListIndex();
 
@@ -13,4 +13,8 @@ public interface ColouredItem {
     int getIndex();
 
     void setIndex(int index);
+
+    String type();
+
+    void setType(String type);
 }

@@ -1,4 +1,4 @@
-package net.anware.tmc.colourscroller.mixin.keyfix;
+package net.anware.tmc.colourscroller.mixin;
 
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil.Key;
@@ -16,12 +16,12 @@ import java.util.List;
 import java.util.Map;
 
 @Mixin(KeyBinding.class)
-public abstract class MixinKeybBinding {
+public abstract class MixinKeyBinding {
     @Shadow private int timesPressed;
     @Shadow @Final private static Map<String, KeyBinding> KEYS_BY_ID;
     @Shadow private Key boundKey;
     @Unique
-    private static Map<Key, List<KeyBinding>> KEY_DIC = new HashMap<>();
+    private static final Map<Key, List<KeyBinding>> KEY_DIC = new HashMap<>();
 
     @Unique
     private void addTime() {
@@ -55,21 +55,21 @@ public abstract class MixinKeybBinding {
     private static void setPressed(Key key, boolean pressed) {
         List<KeyBinding> list = KEY_DIC.get(key);
         if (list == null || list.isEmpty()) return;
-        for (KeyBinding keybind : list) keybind.setPressed(pressed);
+        for (KeyBinding keybinding : list) keybinding.setPressed(pressed);
     }
 
     @Unique
     private static void onPressed(Key key) {
         List<KeyBinding> list = KEY_DIC.get(key);
         if (list == null || list.isEmpty()) return;
-        for (KeyBinding keybind : list) ((MixinKeybBinding) (Object)keybind).addTime();
+        for (KeyBinding keybinding : list) ((MixinKeyBinding) (Object)keybinding).addTime();
     }
 
     @Unique
     private static void updateState() {
         KEY_DIC.clear();
-        for (KeyBinding keybind : KEYS_BY_ID.values()) {
-            KEY_DIC.merge(((MixinKeybBinding) (Object) keybind).getKey(), new ArrayList<>(){{add(keybind);}}, (list, listadd) -> {
+        for (KeyBinding keybinding : KEYS_BY_ID.values()) {
+            KEY_DIC.merge(((MixinKeyBinding) (Object) keybinding).getKey(), new ArrayList<>(){{add(keybinding);}}, (list, listadd) -> {
                 if (list.isEmpty()) return listadd;
                 return new ArrayList<>(){{addAll(list);addAll(listadd);}};
             });

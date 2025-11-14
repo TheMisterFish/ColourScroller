@@ -1,17 +1,14 @@
 {
-	"required": true,
-	"minVersion": "0.8",
-	"package": "net.anware.tmc.colourscroller.mixin",
-	"compatibilityLevel": "JAVA_16",
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"mixins": [
-		"MixinPlayerInventory",
-		"tag.MixinItem",
-		"tag.MixinItems"
-	],
-	"client": [
-		"keyfix.MixinKeybBinding"
-	]
+  "required": true,
+  "package": "net.anware.tmc.colourscroller.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "MixinMouse",
+    "MixinKeyBinding",
+    "MixinItem",
+    "MixinItems"
+  ]
 }

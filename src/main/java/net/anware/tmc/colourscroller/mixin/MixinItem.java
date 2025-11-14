@@ -1,24 +1,26 @@
-package net.anware.tmc.colourscroller.mixin.tag;
+package net.anware.tmc.colourscroller.mixin;
 
-import net.anware.tmc.colourscroller.ColouredItem;
+import net.anware.tmc.colourscroller.ScrollableItem;
 import net.minecraft.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(Item.class)
-public abstract class MixinItem implements ColouredItem {
+public abstract class MixinItem implements ScrollableItem {
     @Unique
     private int listIndex, index;
     @Unique
     private boolean coloured = false;
+    @Unique
+    private String type = "";
 
     @Override
-    public boolean coloured() {
+    public boolean scrollable() {
         return this.coloured;
     }
 
     @Override
-    public void setColoured(boolean coloured) {
+    public void setScrollable(boolean coloured) {
         this.coloured = coloured;
     }
 
@@ -40,5 +42,15 @@ public abstract class MixinItem implements ColouredItem {
     @Override
     public void setIndex(int index) {
         this.index = index;
+    }
+
+    @Override
+    public String type() {
+        return this.type;
+    }
+
+    @Override
+    public void setType(String type) {
+        this.type = type;
     }
 }
