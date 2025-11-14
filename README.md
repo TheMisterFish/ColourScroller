@@ -6,11 +6,14 @@ A Fabric mod that makes cycling through related items fast and intuitive. Use co
 
 Enable quick in-game cycling of item colours and related variants. Scroll a single held item through its variant sequence, or synchronize an entire hotbar row so all items of the same family update to the same variant.
 
-## Required library
+## Requirements and info
 
 **This mod required MaliLib to function**
 
 You can find the MaliLib library [on modrinth](https://modrinth.com/mod/malilib).
+
+**This mod is for client-side only, and only works when in creative mode**
+
 ## Features
 
 * Scroll a single selected item through its colour or variant chain while preserving NBT and stack size.
